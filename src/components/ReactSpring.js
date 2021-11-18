@@ -5,7 +5,9 @@ import { ApplicationViews } from './ApplicationViews'
 export const ReactSpring = ()=>{
     <>
         <Route render={() => {
+            return <>
             <Route render={props => <ApplicationViews {...props} />} />
+            </>
         }}/>
     </>
 
