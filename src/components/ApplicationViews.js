@@ -8,12 +8,11 @@ import { EmployeeList } from "./employee/EmployeeList"
 export const ApplicationViews = () => {
     return (
         <>
-
-            <Route path="/employees">
-                <EmployeeList />
-            </Route>
-
-
+            <EmployeeProvider>
+                <Routes>
+                    <Route path="/employees" element={<EmployeeList />} />
+                </Routes>
+            </EmployeeProvider>
         </>
     )
 }
