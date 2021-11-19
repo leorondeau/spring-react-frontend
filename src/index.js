@@ -5,15 +5,15 @@ import { ReactSpring } from "./components/ReactSpring"
 import "./index.css"
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       {/* <Router> */}
-        <Routes>
+        {/* <Routes> */}
           <ReactSpring />
-        </Routes>
+        {/* </Routes> */}
       {/* </Router> */}
-    </BrowserRouter>
-  </React.StrictMode>,
+    </BrowserRouter>,
+  // </React.StrictMode>,
   document.getElementById("root")
 )
 
