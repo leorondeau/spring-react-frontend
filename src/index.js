@@ -1,22 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from "react-router-dom"
-import { ReactSpring } from './components/ReactSpring.js';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-
-
+import React from "react"
+import ReactDOM from "react-dom"
+import { BrowserRouter, Router, Routes } from "react-router-dom"
+import { ReactSpring } from "./components/ReactSpring"
+import "./index.css"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <ReactSpring />
-    </Router>
+    <BrowserRouter>
+      {/* <Router> */}
+        <Routes>
+          <ReactSpring />
+        </Routes>
+      {/* </Router> */}
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
-);
-
-reportWebVitals();
+  document.getElementById("root")
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
