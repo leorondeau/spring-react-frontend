@@ -1,5 +1,6 @@
 import { Route } from "react-router-dom"
 import React, { useState } from "react"
+import { EmployeeProvider } from "./employee/EmployeeProvider"
 
 export const ApplicationViews = (props) => {
     const [value, setValue] = useState(false)
@@ -10,5 +11,11 @@ export const ApplicationViews = (props) => {
             backgroundColor: "lightgoldenrodyellow"
         }}>
         </main>
+        <EmployeeProvider>
+            <Route exact path="/employees" render={(props)=>{
+                return <Employee {...props}/>
+            }}
+            ></Route>
+        </EmployeeProvider>
     </>
 }
