@@ -9,7 +9,7 @@ export const EmployeeList = (props) => {
         getEmployees()
 
     }, [])
-
+console.log("employeesList", employees)
     return (
         <>
             <section>
