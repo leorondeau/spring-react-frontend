@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter, Router, Routes } from "react-router-dom"
 import { ReactSpring } from "./components/ReactSpring"
+import "bootstrap/dist/css/bootstrap.min.css"
 import "./index.css"
 
 ReactDOM.render(
