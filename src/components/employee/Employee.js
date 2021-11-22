@@ -2,17 +2,17 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { EmployeeContext } from './EmployeeProvider'
 
-export const Employee = ({ employee})=> {
+export const Employee = ({employee})=> {
     return (
         <>
-            <section className="employee">
-                <div className="employee__name" id={`employee--${employee.id}`}>
+            <tr className="employee">
+                <td className="employee__name" id={`employee--${employee.id}`}>
                     {employee.name}
-                </div>
-                <div>
+                </td>
+                <td>
                     {employee.role}
-                </div>
-            </section>
+                </td>
+            </tr>
             </>
     )
 }
