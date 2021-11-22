@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { EmployeeContext, getEmployees } from './EmployeeProvider'
+import {Employee} from './Employee'
+import './employee.css'
 
 export const EmployeeList = (props) => {
     const { employees, getEmployees } = useContext(EmployeeContext)
@@ -9,21 +11,30 @@ export const EmployeeList = (props) => {
         getEmployees()
 
     }, [])
-    
-console.log("employeesList", employees)
+
+    console.log("employeesList", employees)
     return (
         <>
-            <section>
-                <h2 className="text-center">Employees List</h2>
-                <div className = "row">
-                    <table></table>
-                {
-                    employees.map(e => (
-                        <div key={e.id} value={e.id}>{e.name}</div>
-                        ))
-                    }
-                    </div>
-            </section>
+            <div>
+                <h2 className="text-center font-weight-bold">Employees List</h2>
+                <div className="text-center row-center font-weight-bold">
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                            <tr className="list-titles">
+                                <th>Employee Name</th>
+                                <th>Employee Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                employees.map(e => (
+                                    <Employee key={e.id} employee={e}/>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </>
     )
 }
