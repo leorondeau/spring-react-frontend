@@ -1,0 +1,25 @@
+.navbar__link {
+  /* display: flex; */
+  /* justify-content: left; */
+  color: red;
+  text-align: right;
+}
+Link {
+  justify-content: right;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: left;
+}
+
+.navbar__item {
+  flex-basis: 20%;
+  list-style-type: none;
+}
