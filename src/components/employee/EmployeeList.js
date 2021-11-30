@@ -15,7 +15,7 @@ export const EmployeeList = (props) => {
     console.log("employeesList", employees)
     return (
         <>
-            <div>
+            {/* <div> */}
                 <h2 className="text-center font-weight-bold">Employees List</h2>
                 <div className="text-center row-center font-weight-bold">
                     <table className="table table-striped table-bordered">
@@ -34,7 +34,7 @@ export const EmployeeList = (props) => {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            {/* </div> */}
         </>
     )
 }
