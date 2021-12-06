@@ -23,52 +23,50 @@ export const EmployeeForm = (props) => {
 
 
     return (
-
-        <div className="container">
-            <div className="row">
-                <div className="card col-md-6 offset-md-3 offset-md-3">
-                    <h4 className="orderForm__title text-center">Add New Employee</h4>
-                    <div className="card-body">
-                        <form>
-
-                            <fieldset>
+        <div>
+            <div className="container">
+                <div className="row">
+                    <div className="card col-md-6 offset-md-3 offset-md-3">
+                        <h4 className="orderForm__title text-center">Add New Employee</h4>
+                        <div className="card-body">
+                            <form>
                                 <div className="form-group">
                                     <label htmlFor="name">Employee Name</label>
-                                    <input type="text" name="name" value={currentEmployee.name}
+                                    <input type="text" name="name" className="form-control" value={currentEmployee.name}
                                         onChange={handleControlledInputChange} />
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <div>
+                                <div className="form-group">
                                     <label htmlFor="role">Employee Role</label>
-                                    <input type="text" name="role" value={currentEmployee.role}
+                                    <input type="text" name="role" className="form-control" value={currentEmployee.role}
                                         onChange={handleControlledInputChange} />
                                 </div>
-                            </fieldset>
-                            <button className="btn btn-primary" type="submit"
-                                onClick={evt => {
-                                    evt.preventDefault()
+                                <div style={{marginTop: "10px"}}>
+                                    <button className="btn btn-success" type="submit"
+                                        onClick={evt => {
+                                            evt.preventDefault()
 
-                                    const employee = {
-                                        id: null,
-                                        name: currentEmployee.name,
-                                        role: currentEmployee.role
-                                    }
+                                            const employee = {
+                                                id: null,
+                                                name: currentEmployee.name,
+                                                role: currentEmployee.role
+                                            }
+                                            addEmployee(employee)
+                                                .then(() => {
+                                                    getEmployees()
+                                                        .then(() => navigate(`/employees`))
+                                                })
+                                        }}
 
-                                    addEmployee(employee)
-                                        .then(() => {
-                                            getEmployees()
-                                                .then(() => navigate(`/employees`))
-                                        })
-                                }}
-                                className="btn"> Create</button>
-                            <button className="btn btn-primary" type="submit"
-                                onClick={evt => {
-                                    evt.preventDefault()
-                                    navigate(`/`)
-                                }}
-                                className="btn"> Cancel</button>
-                        </form>
+                                    > Create</button>
+                                    <button className="btn btn-danger" type="submit"
+                                        onClick={evt => {
+                                            evt.preventDefault()
+                                            navigate(`/`)
+                                        }} style={{ marginLeft: "10px" }}
+                                    > Cancel</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
