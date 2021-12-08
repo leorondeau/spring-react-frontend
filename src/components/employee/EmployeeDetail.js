@@ -38,7 +38,11 @@ export const EmployeeDetail = (props) => {
                         </tbody>
                     </table>
                     </div>
-                    <button>
+                    <button className= "btn btn-success" type="submit"
+                    onClick={evt => {
+                        evt.preventDefault()
+                        
+                    }}>
                         <div>Edit</div>
                     </button>
                 </div>
