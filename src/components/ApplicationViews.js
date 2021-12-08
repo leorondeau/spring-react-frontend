@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { EmployeeProvider } from "./employee/EmployeeProvider"
 import { EmployeeList } from "./employee/EmployeeList"
 import { EmployeeForm } from "./employee/EmployeeForm"
+import { EmployeeDetail} from "./employee/EmployeeDetail"
 
 
 
@@ -12,8 +13,9 @@ export const ApplicationViews = () => {
             <EmployeeProvider>
                 <Routes>
                     <Route exact path="/" element={<EmployeeList />} />
-                    <Route path="/employees" element={<EmployeeList />} />
+                    {/* <Route path="/employees" element={<EmployeeList />} /> */}
                     <Route path="/add-employee" element={<EmployeeForm />} />
+                    <Route path="/employees/detail/:id" element={<EmployeeDetail />} />
                 </Routes>
             </EmployeeProvider>
         </>
