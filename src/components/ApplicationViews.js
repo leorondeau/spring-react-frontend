@@ -15,6 +15,7 @@ export const ApplicationViews = () => {
                     <Route exact path="/" element={<EmployeeList />} />
                     {/* <Route path="/employees" element={<EmployeeList />} /> */}
                     <Route path="/add-employee" element={<EmployeeForm />} />
+                    <Route path="/edit-employee/:id" element={<EmployeeForm />} />
                     <Route path="/employees/detail/:id" element={<EmployeeDetail />} />
                 </Routes>
             </EmployeeProvider>
