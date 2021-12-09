@@ -17,7 +17,7 @@ export const EmployeeDetail = (props) => {
 
     }, [])
 
-    console.log("employee", employee)
+    
 
     return (
         <>
@@ -38,12 +38,13 @@ export const EmployeeDetail = (props) => {
                         </tbody>
                     </table>
                     </div>
-                    <button className= "btn btn-success" type="submit"
+                    <button className= "btn btn-success" type="button"
                     onClick={evt => {
                         evt.preventDefault()
+                        navigate(`/edit-employee/${employee.id}`)
                         
                     }}>
-                        <div>Edit</div>
+                        Edit
                     </button>
                 </div>
 
