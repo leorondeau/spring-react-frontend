@@ -25,15 +25,13 @@ export const EmployeeForm = (props) => {
             getSingleEmployee(eid).then(e => {
                 
                 setCurrentEmployee({
-                    id: eid,
+                    
                     name: employee.name,
                     role: employee.role
                 })
             })
         }
     }, [params])
-
- 
 
     const handleControlledInputChange = (event) => {
         const newEmployeeState = Object.assign({}, currentEmployee)
@@ -63,12 +61,12 @@ export const EmployeeForm = (props) => {
                                 <div style={{marginTop: "10px"}}>
                                 {
                                     ("id" in params)
-                                    ? <button className="btn btn-success"
+                                    ? <button className="btn btn-success" type="submit"
                                         onClick={evt => {
                                             evt.preventDefault()
                                             // debugger
                                             updateEmployee({
-                                                
+                                                id: eid,
                                                 name: currentEmployee.name,
                                                 role: currentEmployee.role
                                             })
