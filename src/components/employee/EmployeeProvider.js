@@ -41,8 +41,8 @@ export const EmployeeProvider = (props) => {
         
     }
 
-    const updateEmployee = ({employee}) => {
-        return fetch(`http://localhost:8000/api/v1/employees/${employee.id}`, {
+    const updateEmployee = (employee) => {
+        return fetch(`http://localhost:8080/api/v1/employees/${employee.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
