@@ -6,7 +6,8 @@ export const EmployeeContext = React.createContext()
 
 export const EmployeeProvider = (props) => {
     const [employees, setEmployees] = useState([])
-
+    const [employee, setEmployee] = useState({})
+    
     const getEmployees = () => {
         // return axios.get(EMPLOYEE_APT_BASE_URL)
         //     .then(response => response.json())
@@ -16,6 +17,17 @@ export const EmployeeProvider = (props) => {
             .then(response => response.json())
             .then(setEmployees)
     }
+ 
+    const getSingleEmployee = (id) => {
+        // return axios.get(EMPLOYEE_APT_BASE_URL)
+        //     .then(response => response.json())
+        //     .then(setEmployees)
+
+        return fetch(`http://localhost:8080/api/v1/employees/${id}`)
+            .then(response => response.json())
+            .then(setEmployee)
+    }
+    
 
     const addEmployee = (employee) => {
         return fetch("http://localhost:8080/api/v1/employees", {
@@ -29,10 +41,21 @@ export const EmployeeProvider = (props) => {
         
     }
 
-    console.log(props)
+    const updateEmployee = ({employee}) => {
+        return fetch(`http://localhost:8000/api/v1/employees/${employee.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(employee)
+        })
+        .then(getEmployees)
+    }
+
+    
     return (
         <EmployeeContext.Provider
-            value={{ employees, addEmployee, getEmployees }}>
+            value={{ employees, employee, addEmployee, getEmployees, updateEmployee, getSingleEmployee }}>
             {props.children}
         </EmployeeContext.Provider>
     )

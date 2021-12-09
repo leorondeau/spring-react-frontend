@@ -1,19 +1,39 @@
-import React, { useState, useContext } from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext, useEffect  } from 'react'
+import { useNavigate, useParams } from "react-router-dom";
 
 import { Employee } from './Employee'
 import { EmployeeContext } from './EmployeeProvider'
 
 export const EmployeeForm = (props) => {
-    const { addEmployee, getEmployees } = useContext(EmployeeContext)
+    const { employee, addEmployee, getEmployees, updateEmployee, getSingleEmployee } = useContext(EmployeeContext)
     const navigate = useNavigate()
-    console.log("history", navigate)
+    const params = useParams()
+    const eid = parseInt(params.id)
+    console.log("params", eid)
+    
 
     const [currentEmployee, setCurrentEmployee] = useState({
         id: null,
         name: "",
         role: ""
     })
+
+    useEffect(() => {
+        // debugger
+        
+        if("id" in params) {
+            getSingleEmployee(eid).then(e => {
+                
+                setCurrentEmployee({
+                    id: eid,
+                    name: employee.name,
+                    role: employee.role
+                })
+            })
+        }
+    }, [params])
+
+ 
 
     const handleControlledInputChange = (event) => {
         const newEmployeeState = Object.assign({}, currentEmployee)
@@ -41,30 +61,48 @@ export const EmployeeForm = (props) => {
                                         onChange={handleControlledInputChange} />
                                 </div>
                                 <div style={{marginTop: "10px"}}>
-                                    <button className="btn btn-success" type="submit"
+                                {
+                                    ("id" in params)
+                                    ? <button className="btn btn-success"
                                         onClick={evt => {
                                             evt.preventDefault()
-
+                                            // debugger
+                                            updateEmployee({
+                                                
+                                                name: currentEmployee.name,
+                                                role: currentEmployee.role
+                                            })
+                                            .then(() => navigate("/"))
+                                        }}
+                                        
+                                        > Save</button>
+                                    
+                                    : <button className="btn btn-success" type="submit"
+                                        onClick={evt => {
+                                            evt.preventDefault()
+                                            
                                             const employee = {
                                                 id: null,
                                                 name: currentEmployee.name,
                                                 role: currentEmployee.role
                                             }
                                             addEmployee(employee)
-                                                .then(() => {
-                                                    getEmployees()
-                                                        .then(() => navigate(`/employees`))
-                                                })
+                                            .then(() => {
+                                                getEmployees()
+                                                .then(() => navigate(`/employees`))
+                                            })
                                         }}
-
-                                    > Create</button>
+                                        
+                                        > Create</button>
+                                }
                                     <button className="btn btn-danger" type="submit"
                                         onClick={evt => {
                                             evt.preventDefault()
                                             navigate(`/`)
                                         }} style={{ marginLeft: "10px" }}
-                                    > Cancel</button>
+                                        > Cancel</button>
                                 </div>
+                                    
                             </form>
                         </div>
                     </div>

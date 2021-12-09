@@ -7,7 +7,7 @@ export const Employee = ({employee})=> {
         <>
             <tr className="employee">
                 <td className="employee__name" id={`employee--${employee.id}`}>
-                    {employee.name}
+                    <Link to={`/employees/detail/${employee.id}`}>{employee.name}</Link>
                 </td>
                 <td>
                     {employee.role}

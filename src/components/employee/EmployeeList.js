@@ -12,7 +12,7 @@ export const EmployeeList = (props) => {
 
     }, [])
 
-    console.log("employeesList", employees)
+    
     return (
         <>
             {/* <div> */}
