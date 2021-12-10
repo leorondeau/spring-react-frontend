@@ -11,7 +11,7 @@ export const EmployeeList = (props) => {
         getEmployees()
 
     }, [])
-
+    // debugger
     
     return (
         <>
@@ -26,7 +26,9 @@ export const EmployeeList = (props) => {
                             </tr>
                         </thead>
                         <tbody>
+                            
                             {
+                                
                                 employees.map(e => (
                                     <Employee key={e.id} employee={e}/>
                                 ))
