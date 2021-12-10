@@ -12,7 +12,6 @@ export const ReactSpring = () => {
         <>
             {/* <NavBar /> */}
             <Header />
-
             <ApplicationViews />
             <Footer />
         </>

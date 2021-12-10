@@ -87,7 +87,7 @@ export const EmployeeForm = (props) => {
                                             addEmployee(employee)
                                             .then(() => {
                                                 getEmployees()
-                                                .then(() => navigate(`/employees`))
+                                                .then(() => navigate(`/`))
                                             })
                                         }}
                                         

@@ -52,10 +52,20 @@ export const EmployeeProvider = (props) => {
         .then(getEmployees)
     }
 
+    const deleteEmployee = (id) => {
+        return fetch(`http://localhost:8080/api/v1/employees/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(id)
+        })
+        .then(getEmployees)
+    }
     
     return (
         <EmployeeContext.Provider
-            value={{ employees, employee, addEmployee, getEmployees, updateEmployee, getSingleEmployee }}>
+            value={{ employees, employee, addEmployee, getEmployees, updateEmployee, getSingleEmployee , deleteEmployee}}>
             {props.children}
         </EmployeeContext.Provider>
     )
